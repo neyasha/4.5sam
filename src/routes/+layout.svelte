@@ -1,6 +1,6 @@
 <nav>
-    <div class = "nav-container">
-        <a href="/" class ="nav-logo" title="Back to Homepages">Настя Палагина</a>
+    <div class="nav-container">
+        <a href="/" class="nav-logo" title="Back to Homepages">Империя Грёз</a>
         <div class="nav-links">
             {#each nav as link}
                 {#if link.isShow}
@@ -15,38 +15,66 @@
 <div class="container">
     <slot></slot>
 </div>
+
 <script>
     const nav = [
         {
-         title: "Виды программистов",
-         href: "/about",
-         isShow: true,
+            title: "О кинотеатре",
+            href: "/about",
+            isShow: true,
         },
         {
-         title: "Обучение",
-         href: "/blog",
-         isShow: true,
+            title: "Каталог фильмов",
+            href: "/blog",
+            isShow: true,
         },
         {
-         title: "Перспективы",
-         href: "/project",
-         isShow: true,
+            title: "Описание фильмов",
+            href: "/opis",
+            isShow: true,
         },
         {
-         title: "Итог",
-         href: "/contact",
-         isShow: true,
-        },
-        {
-         title: "temp",
-         href: "/temp",
-         isShow: false,
+            title: "О нас",
+            href: "/contact",
+            isShow: true,
         },
     ];
 </script>
+
 <style>
-    .container{
-        max-width: 1400px;
-        margin: 50 px auto;
-    }
+
+        nav {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 0;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            
+        }
+        .nav-logo {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links .link {
+            text-decoration: none;
+            color: #ff0000;
+            margin-left: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
 </style>
+

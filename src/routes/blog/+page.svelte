@@ -1,66 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Империя Грёз</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #6e2a2a;
+        }
+        .container {
+            max-width: 1350px;
+            margin: 20px auto;
+            padding: 0; 
+        }
+        h1 {
+            text-align: center;
+            color: #a3641c;
+        }
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .product {
+            width: 100%;
+            padding: 20px;
+            background-color: #9e5d1c;
+            color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            opacity: 0; 
+            animation: fadeIn 1s ease-in-out forwards; 
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            max-height: 300px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .product h2 {
+            color: #4f0a0a;
+            margin-bottom: 10px;
+        }
+        .product p {
+            margin-bottom: 10px;
+        }
+        .product select {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            width: 100%;
+            box-sizing: border-box;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        .product .price {
+            margin-top: 10px;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        .product button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4f0a0a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product button:hover {
+            background-color: #a3641c;
+        }
 
-<body>
-    <div class="main">
-        <div class="header">
-            <div class="headert_text_resize">
-                <div class="headert_text">
-                    <h2>Где изучать программирование? </h2>
-                    <p><span> Некоторые, желая сэкономить время и быстрее освоить специальность, решают пройти специальные курсы и не идти в университет. Хотя этот вариант действительно экономит время, у него есть существенный недостаток. </span></p>
-                    <p>Специалисты, не окончившие вуз не будут цениться на рынке труда. Сейчас конкуренция у программистов очень большая. </p>
-                </div>
-        </div>
-        <div class="body">
-            <div class="body_resize">
-                <div class="left">
-                    <div class="resize_bg">
-                       <h1>Что надо понимать?</h1>
-                        <p><b>Какие же знания должен иметь будущий специалист в сфере IT? Какие навыки надо развивать? На что надо уделить большее внимание и силы?</b> </p>
-                        <h2>Математику</h2>
-                        <p>Нет, обучение IT не будет похоже на уроки алгебры в школе. Однако программист должен как минимум знать основные формулы и уметь выполнять простые операции. В то же время «погружение» в математику зависит от того, в каком IT-направлении хочет развиваться человек. Например, для написания сложных алгоритмов понадобится более глубокое освоение предмета. В будущем оно пригодится для «сложных» IT-профессий, среди которых аналитик Big Data или специалист по машинному обучению. </p>
-                        <p>&nbsp;</p>
-                        <h2>Логику</h2>
-                        <p>Недостаточно хорошо понимать математику, важно уметь мыслить логически, потому что все программы построены на логике. Если ее нет, то и код не будет работать. Код состоит из последовательных логических операций, которые, в свою очередь, запускают последующие. Без базового знания логики стать программистом не получится.</p>
-                        <p>&nbsp;</p>
-                        <h2>Алгоритмику и структуры данных</h2>
-                        <p>Без их понимания не удастся решить ни одну задачу. Более того, эти знания требуют в первую очередь при приеме на работу. Алгоритмика учит достигать целей, поэтапно выстраивая план действий. Без этого навыка программист не запустит ни одну программу. Структуры данных включают в себя связанные списки, массивы, стеки и др. Без этих инструментов невозможно разработать ни одно работающее приложение.</p>
-                        <p>&nbsp;</p>
-                         <h2>Базовые инструменты разработки</h2>
-                        <p>Без него не обойтись! Потому что все почти языки программирования используют английские слова. Знание языка поможет легче разобраться в коде, использовать библиотеки, проходить продвинутые курсы и общаться с коллегами из других стран. Но не только, чтобы дружить: зная язык, всегда можно найти ответы у более опытных специалистов.</p>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                    </div>
-                </div>
-            </div>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="background">
+    <div class="container">
+        <h1>Каталог фильмов</h1>
+        <div class="catalog" id="catalog"></div>
     </div>
-        <div class="FBG">
-            <div class="FBG_resize">
-                <div class="blok">
-                    <h2>Про <span>сайт</span></h2>
-                    <p>Этот сайт рассказывает о профессии программиста. Показывает какие виды программистов существуют, что требуется знать чтобы стать программистом икаковы перспективы данной профессии.
-                    </p>
-                </div>
-                <div class="blok">
-                    <h2>O создателе <span>сайта</span></h2>
-                    <p>Я участник проекта "Код будущего"<br />
-                        Учусть в техникуме на программиста.<br />
-                        <br />
-                        Telephone : +7 9012345678<br />
-                    </p>
-                </div>
-            </div>
-        </div>
-</body>
 
-<style>
-    @charset "utf-8";
-body{
-        margin:auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100%;
-        padding: 5vmin;
-        box-sizing: border-box;
-        background: antiquewhite;
-    }
-</style>
+    <script>
+        const products = [
+            { name: 'Лёд 3', image: 'https://s3.afisha.ru/mediastorage/2a/33/d281002d901a4f7d84337489332a.jpg', options: [1, 2, 3, 4], prices: [150, 280, 350, 450] },
+            { name: 'Огонь', image: 'https://s2.afisha.ru/mediastorage/d9/92/ce34ba18fb4d4a598babbc2992d9.jpg', options: [1, 2, 3, 4], prices: [170, 300, 450, 600] },
+            { name: 'Адам и Ева', image: 'https://s5.afisha.ru/mediastorage/db/7e/7cc9b0384a5d405f8cd0de397edb.jpg', options: [1, 2, 3, 4], prices: [150, 290, 360, 500] },
+            { name: 'Текст', image: 'https://sun9-38.userapi.com/impg/c855016/v855016017/17be73/gC_4lN7OqJg.jpg?size=520x0&quality=95&sign=eca48f1d9488c3138e1de0b23b5aa790', options: [1, 2, 3, 4], prices: [170, 310, 470, 680] },
+            { name: 'Брат', image: 'https://kudamoscow.ru//uploads/220325124425310.jpg', options: [1, 2, 3, 4], prices: [100, 180, 260, 380] },
+            { name: 'Вызов', image: 'https://s1.afisha.ru/mediastorage/67/35/05325e5fca82487fa975ade33567.jpg', options: [1, 2, 3, 4], prices: [190, 320, 480, 670] },
+        ];
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product';
+
+            const image = document.createElement('img');
+            image.src = product.image;
+            image.alt = product.name;
+            card.appendChild(image);
+
+            const title = document.createElement('h2');
+            title.textContent = product.name;
+            card.appendChild(title);
+
+            const paragraph = document.createElement('p');
+            paragraph.textContent = 'Количество билетов:';
+            card.appendChild(paragraph);
+
+            const select = document.createElement('select');
+            product.options.forEach((option, index) => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                optionElement.setAttribute('data-price', product.prices[index]);
+                select.appendChild(optionElement);
+            });
+            card.appendChild(select);
+
+const timeParagraph = document.createElement('p');
+timeParagraph.textContent = 'Выберите время сеанса:';
+card.appendChild(timeParagraph);
+
+const timeSelect = document.createElement('select');
+const times = ['10:00', '13:00', '16:00', '19:00'];
+times.forEach(time => {
+    const timeOption = document.createElement('option');
+    timeOption.value = time;
+    timeOption.textContent = time;
+    timeSelect.appendChild(timeOption);
+});
+card.appendChild(timeSelect);
+const price = document.createElement('div');
+price.className = 'price';
+card.appendChild(price);
+
+select.addEventListener('change', function () {
+    const selectedOption = this.options[this.selectedIndex];
+    const selectedPrice = selectedOption.getAttribute('data-price');
+    price.textContent = `Цена:${selectedPrice}₽`;
+});
+const button = document.createElement('button');
+button.textContent = 'Забронировать';
+button.addEventListener('click', function () {
+    const selectedQuantity = select.value;
+    const selectedTime = timeSelect.value;
+    const selectedPrice = select.options[select.selectedIndex].getAttribute('data-price');
+    let message = `Фильм "${product.name}".`;
+
+    message += ` Количество билетов: ${selectedQuantity}. Время сеанса ${selectedTime}. Общая сумма:${selectedPrice}₽.`;
+    alert(message);
+});
+card.appendChild(button);
+
+return card;
+}
+
+const catalog = document.getElementById('catalog');
+products.forEach(product => {
+catalog.appendChild(createProductCard(product));
+});
+</script>
+</body>
+</html>
